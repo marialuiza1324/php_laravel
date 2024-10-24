@@ -27,8 +27,20 @@ php artisan key:generate
 ```
 composer require laravel/sanctum
 
-# instalando laravel sanctum (gera o access_token pra login)
+# instala laravel sanctum (gera o access_token pra login)
 php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+```
+
+7. Criar tabela de sessões
+```
+# cria a migration para sessões
+php artisan session:table
+php artisan migrate
+```
+
+8. Limpar cache das rotas
+```
+php artisan route:clear
 ```
 
 > [!NOTE]
@@ -59,4 +71,11 @@ php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
 > 1. Criar controller
 >   ```
 >   php artisan make:controller Nomecontroller+Controller
+>   ```
+
+> [!NOTE]
+> COMANDOS DE ROUTES
+> 1. Instalar api
+>   ```
+>   php artisan install:api 
 >   ```
