@@ -31,7 +31,7 @@ class VeiculoController extends Controller
 
         if($request->hasFile('img') && $request->file('img')->isValid()){
             $img = $request->file('img');
-            $imgName = Str::slug($request->modelo) . '.' - $img->getClientOriginalExtension(); // formatacao de texto (tira acento e pontuação)
+            $imgName = Str::slug($request->modelo) . '.' . $img->getClientOriginalExtension(); // formatacao de texto (tira acento e pontuação)
 
             $imgPath = $img->storeAs("veiculos/{$veiculo->id}", $imgName, "public"); // cria a pasta em public
             $veiculo->img = "storage/veiculos/{$veiculo->id}/{$imgName}";
@@ -54,10 +54,10 @@ class VeiculoController extends Controller
             }
 
             $img = $request->file('img');
-            $imgName = Str::slug($request->modelo) . '.' - $img->getClientOriginalExtension(); // formatacao de texto (tira acento e pontuação)
+            $imgName = Str::slug($request->modelo) . '.' . $img->getClientOriginalExtension(); // formatacao de texto (tira acento e pontuação)
             $imgPath = $img->storeAs("veiculos/{$veiculo->id}", $imgName, "public"); // cria a pasta em public
             
-            $request->merge(["img" => "veiculos/" - $imgName]);
+            $request->merge(["img" => "veiculos/" . $imgName]);
         }
 
         $veiculo->update($request->all());
