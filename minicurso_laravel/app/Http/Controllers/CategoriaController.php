@@ -29,6 +29,6 @@ class CategoriaController extends Controller
     public function destroy($id){
         $categoria = Categoria::findOrFail($id);
         $categoria->delete();
-        return response()->json("Deletado com sucesso!"); // retorna a mensagem de sucesso em json
+        return response()->json("Categoria deletada com sucesso!"); // retorna a mensagem de sucesso em json
     }
 }
